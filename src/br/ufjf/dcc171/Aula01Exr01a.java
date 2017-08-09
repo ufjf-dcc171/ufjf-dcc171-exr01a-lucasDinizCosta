@@ -1,21 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufjf.dcc171;
 
-/**
- *
- * @author 09937490626
- */
+import javax.swing.JOptionPane;
+
 public class Aula01Exr01a {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Objeto obj = new Objeto();
+        try{
+            Float altura = Float.parseFloat(JOptionPane.showInputDialog(null, "Digite a altura(cm): ", "Altura"));
+            Float comprimento = Float.parseFloat(JOptionPane.showInputDialog(null, "Digite o comprimento(cm): ", "Comprimento"));
+            Float largura = Float.parseFloat(JOptionPane.showInputDialog(null, "Digite a largura(cm): ", "Largura"));
+            obj.setAltura(altura);
+            obj.setComprimento(comprimento);
+            obj.setLargura(largura);
+            obj.calculaVolume();
+            JOptionPane.showMessageDialog(null, "O Volume do objeto eh: " + obj.getVolume(), "Resultado", JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "PARAMETROS INVALIDOS!!!", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
-    
+
 }
